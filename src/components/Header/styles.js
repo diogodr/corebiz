@@ -11,33 +11,25 @@ export const Container = styled.div`
   .logo {
     width: 170.14px;
     height: 41px;
-  }
-
-  .dot {
-    width: 9.05px;
-    height: 9.08px;
+    margin: 0 30px; 
   }
 
   nav {
     display: flex;
+    width: 100%;
+    max-width: 760px;
+    margin-right: 30px;
 
     .input-search {
+      display: flex;
       border-bottom: 1px solid #7A7A7A;
       margin-right: 44px;
       width: 100%;
 
       input {
         width: 100%;
-        border: none;      
-        width: 718px;
-
-        @media (max-width: 1600px) {
-          width: 518px;
-        }
-
-        @media (max-width: 1280px) {
-          width: 318px;
-        }
+        border: none;
+        width: 100%;
       }
     }
 
