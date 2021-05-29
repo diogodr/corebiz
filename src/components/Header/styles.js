@@ -3,10 +3,21 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 80px;
   background-color: #fff;
-
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 340px;
+  width: 100%;
+
+  @media (max-width: 1340px) {
+    margin: 0 140px;
+  }
 
   .logo {
     width: 170.14px;

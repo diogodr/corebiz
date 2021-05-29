@@ -59,7 +59,3 @@ export const Container = styled.div`
     margin: 0 24px;
   }
 `;
-
-export const Content = styled.div`
-
-`;

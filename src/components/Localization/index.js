@@ -37,9 +37,6 @@ function Localization() {
           <img src={vtexImg} alt="vtex" />
         </div>
       </div>
-      <div>
-
-      </div>
     </Container>
   );
 }
