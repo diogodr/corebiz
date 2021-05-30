@@ -57,9 +57,15 @@ export const Content = styled.div`
       padding: 4px;
 
       input {
+        margin-top: 4px;
         margin-right: 8px;
         width: 96%;
         border: none;        
+      }
+
+      input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
       }
     }
 `;

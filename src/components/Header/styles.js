@@ -42,6 +42,11 @@ export const Content = styled.div`
         border: none;
         width: 100%;
       }
+
+      input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+      }
     }
 
     .my-account {

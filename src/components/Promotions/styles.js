@@ -41,6 +41,11 @@ export const Container = styled.div`
       }
     }
 
+    input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+      }
+
     button {
       border: none;
       width: 140px;

@@ -3,12 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 501px;  
+
 `;
 
 export const Content = styled.div`
   width: 100%;
   height: 501px;
   padding: 0 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   
   h1 {
     font-weight: 900;
@@ -81,9 +85,11 @@ export const Content = styled.div`
     align-items: center;
     width: 216px;
     height: 353px;
+    padding: 16px;
 
     img {
-      margin-bottom: 8px;
+      width: 100%;
+      margin: 8px 0;
 
       @media (max-width: 768px) {
         width: 100%;
@@ -96,7 +102,7 @@ export const Content = styled.div`
       line-height: 16px;
       text-align: center;
       color: #7A7A7A;
-      margin-bottom: 8px;
+      /* margin-bottom: 8px; */
     }
 
     h2 {
@@ -107,12 +113,21 @@ export const Content = styled.div`
       margin-bottom: 8px;
     }
     button {
+      border: none;
       width: 125.28px;
       height: 32.42px; 
       background: #000000;
       color: #fff;
       font-weight: bold;
       border-radius: 5px;
+    }
+
+    .stars-container {
+      display: flex;
+    }
+
+    .list-price {
+      text-decoration: line-through;
     }
   }
   

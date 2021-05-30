@@ -20,7 +20,7 @@ export function Header() {
             <img className="logo" src={logoImg} alt="corebiz" />
             <nav>
               <div className="input-search">
-                <input type="search" placeholder="O que está procurando?" />
+                <input type="text" placeholder="O que está procurando?" />
                 <img src={searchIconImg} alt="corebiz" />
               </div>
               <div className="my-account">

@@ -12,22 +12,12 @@ export function Slider() {
   return (
     <Container>
       <div className="styling-example">
-        {isMobile ? (
-          <Carousel className="slide-mobile" enableAutoPlay autoPlaySpeed={3000}>
-            <img src={mobileSlideImg} alt="slide" />
-            <img src={mobileSlideImg} alt="slide" />
-            <img src={mobileSlideImg} alt="slide" />
-            <img src={mobileSlideImg} alt="slide" />
-          </Carousel>
-        ) : (
-          <Carousel enableAutoPlay autoPlaySpeed={3000}>
-            <img src={slideImg} alt="slide" />
-            <img src={slideImg} alt="slide" />
-            <img src={slideImg} alt="slide" />
-            <img src={slideImg} alt="slide" />
-          </Carousel>
-        )}
-
+        <Carousel className={isMobile ? "slide-mobile" : ""} enableAutoPlay autoPlaySpeed={3000}>
+          <img src={isMobile ? mobileSlideImg : slideImg} alt="slide" />
+          <img src={isMobile ? mobileSlideImg : slideImg} alt="slide" />
+          <img src={isMobile ? mobileSlideImg : slideImg} alt="slide" />
+          <img src={isMobile ? mobileSlideImg : slideImg} alt="slide" />
+        </Carousel>
       </div>
     </Container>
   );
