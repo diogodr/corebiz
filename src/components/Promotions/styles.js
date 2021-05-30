@@ -21,12 +21,18 @@ export const Container = styled.div`
       width: 287px;
     }
   }
+  .error {
+    margin-top: 4px;
+    color: #F8475F;
+    font-size: 16px;
+  }
 
   form {
     @media (max-width: 768px) {
       display: flex;
       flex-direction: column;
     }
+    
     
     input {
       margin-right: 8px;
@@ -42,9 +48,9 @@ export const Container = styled.div`
     }
 
     input:focus {
-        box-shadow: 0 0 0 0;
-        outline: 0;
-      }
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
 
     button {
       border: none;

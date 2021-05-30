@@ -10,6 +10,7 @@ function Promotions() {
   const [emailErrorForm, setEmailErrorForm] = useState("");
 
   async function handleSubmit(event) {
+    var pattern = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/);
     event.preventDefault();
     if (name.length < 4) {
       setNameErrorForm("Digite um nome válido");
@@ -18,7 +19,7 @@ function Promotions() {
       setNameErrorForm("");
     }
 
-    if (!email.includes('@')) {
+    if (!pattern.test(email)) {
       setEmailErrorForm('Digite um email válido');
       return
     } else {
@@ -50,9 +51,9 @@ function Promotions() {
         <button>Eu quero!</button>
       </form>
       {nameErrorForm ? (
-        <p>{nameErrorForm}</p>
+        <p className="error">{nameErrorForm}</p>
       ) : emailErrorForm ? (
-        <p>{emailErrorForm}</p>
+        <p className="error">{emailErrorForm}</p>
       ) : (
         <p style={{ color: '#BDBDBD' }}> - </p>
       )}
