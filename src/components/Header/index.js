@@ -11,7 +11,7 @@ import { useWindowSize } from "../hooks/useWindowSize";
 
 export function Header() {
   const [count] = useContext(CounterCartContext);
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
 
   const [isMobile, setIsMobile] = useState(width < 768)
 

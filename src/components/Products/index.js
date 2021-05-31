@@ -4,15 +4,22 @@ import starImg from '../../assets/star.svg'
 import starOutlineImg from '../../assets/starOutline.svg'
 import { api } from '../../services/api';
 import { CounterCartContext } from '../hooks/useItems';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 import { Container, Content } from './styles';
 
 function Products() {
   const [count, setCount] = useContext(CounterCartContext);
-  const widthScreem = window.innerWidth;
-  const isMobile = widthScreem < 768;
   const [selectedProduct, setSelectedProduct] = useState();
   const [products, setProducts] = useState([]);
+
+  const [width] = useWindowSize();
+
+  const [isMobile, setIsMobile] = useState(width < 768)
+
+  useEffect(() => {
+    setIsMobile(width < 768);
+  }, [width]);
 
   function handleSelectedDiv(id) {
     setSelectedProduct(id);
