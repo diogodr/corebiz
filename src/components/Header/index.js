@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { Container, Content } from './styles';
 import logoImg from '../../assets/logo.svg'
@@ -7,12 +7,17 @@ import personIconImg from '../../assets/personIcon.svg'
 import carIconImg from '../../assets/carIcon.svg'
 import { HeaderMobile } from './HeaderMobile'
 import { CounterCartContext } from '../hooks/useItems';
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export function Header() {
-  const widthScreem = window.innerWidth;
-  const isMobile = widthScreem < 700;
-
   const [count] = useContext(CounterCartContext);
+  const [width, height] = useWindowSize();
+
+  const [isMobile, setIsMobile] = useState(width < 768)
+
+  useEffect(() => {
+    setIsMobile(width < 768);
+  }, [width]);
 
   return (
     <>
