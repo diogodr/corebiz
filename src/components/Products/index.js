@@ -1,18 +1,23 @@
-import { render } from '@testing-library/react';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Carousel from 'react-elastic-carousel';
-import sapatoImg from '../../assets/sapato.svg'
 import starImg from '../../assets/star.svg'
 import starOutlineImg from '../../assets/starOutline.svg'
 import { api } from '../../services/api';
+import { CounterCartContext } from '../hooks/useItems';
 
 import { Container, Content } from './styles';
 
 function Products() {
+  const [count, setCount] = useContext(CounterCartContext);
   const widthScreem = window.innerWidth;
-  const [isMobile, setIsMobile] = useState(widthScreem < 768);
-
+  const isMobile = widthScreem < 768;
+  const [selectedProduct, setSelectedProduct] = useState();
   const [products, setProducts] = useState([]);
+
+  function handleSelectedDiv(id) {
+    setSelectedProduct(id);
+    console.log(selectedProduct)
+  }
 
   async function getProducts() {
     const response = await api.get('/products')
@@ -30,6 +35,14 @@ function Products() {
     return response;
   }
 
+  function handleBuy() {
+    setCount(count + 1)
+  }
+
+  function formatCurrency(price) {
+    return Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price / 100)
+  }
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -41,27 +54,23 @@ function Products() {
         <div className="border"></div>
         <Carousel itemsToShow={isMobile ? 2 : 4}>
           {products.map(product => (
-            <div className="carousel-item">
-              <img src={product.imageUrl} alt="produto" />
-              <p>{product.productName}</p>
+            <div key={product.productId} className={product.productId === selectedProduct ? "active-carousel-item" : "carousel-item"}>
+              <img onClick={() => handleSelectedDiv(product.productId)} src={product.imageUrl} alt="produto" />
+              <p> {product.productName}</p>
               <div className="stars-container">
                 {renderStars(product.stars)}
               </div>
-              {product.listPrice ? (
-                <p className="list-price">de {Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(product.listPrice / 100)}</p>
-              ) : (
-                <p style={{ color: '#fff' }}> - </p>
-              )}
-              <h2>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(product.price / 100)}</h2>
+              {product.listPrice && (<p className="list-price">de {formatCurrency(product.listPrice)}</p>)}
+              <h2>{formatCurrency(product.price)}</h2>
               {product.installments.map(installment => (
-                <p>ou em {installment.quantity}x de {Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(installment.value / 100)}</p>
+                <p key={installment.quantity}>ou em {installment.quantity}x de {formatCurrency(installment.value)}</p>
               ))}
-              <button>COMPRAR</button>
+              {product.productId === selectedProduct && <button onClick={handleBuy}>COMPRAR</button>}
             </div>
           ))}
         </Carousel>
-      </Content>
-    </Container>
+      </Content >
+    </Container >
   );
 }
 

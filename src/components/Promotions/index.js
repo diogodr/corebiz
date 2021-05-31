@@ -10,7 +10,7 @@ function Promotions() {
   const [emailErrorForm, setEmailErrorForm] = useState("");
 
   async function handleSubmit(event) {
-    var pattern = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/);
+    var pattern = new RegExp(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,})+$/);
     event.preventDefault();
     if (name.length < 4) {
       setNameErrorForm("Digite um nome válido");

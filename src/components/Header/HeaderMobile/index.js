@@ -3,8 +3,12 @@ import logoImg from '../../../assets/logo.svg'
 import searchIconImg from '../../../assets/searchIcon.svg'
 import carIconImg from '../../../assets/carIcon.svg'
 import menuIconImg from '../../../assets/menuIcon.svg'
+import { useContext } from 'react';
+import { CounterCartContext } from '../../hooks/useItems';
 
 export function HeaderMobile() {
+  const [count] = useContext(CounterCartContext);
+
   return (
     <Container>
       <Content>
@@ -15,7 +19,7 @@ export function HeaderMobile() {
             <div className="buy-car">
               <img src={carIconImg} alt="carrinho de compra" />
               <div>
-                <p>1</p>
+                <p>{count}</p>
               </div>
             </div>
           </nav>

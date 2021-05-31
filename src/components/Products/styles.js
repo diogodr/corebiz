@@ -130,9 +130,59 @@ export const Content = styled.div`
       text-decoration: line-through;
     }
   }
-  
-  .carousel-item:active {
-    background-color: #E6E8EA;
+
+  .active-carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 216px;
+    height: 353px;
+    padding: 16px;
+
+    background: #E6E8EA;
+
+    img {
+      width: 100%;
+      margin: 8px 0;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        padding: 0 12px;
+      }
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+      color: #7A7A7A;
+      /* margin-bottom: 8px; */
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 25px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    button {
+      border: none;
+      width: 125.28px;
+      height: 32.42px; 
+      background: #000000;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .stars-container {
+      display: flex;
+    }
+
+    .list-price {
+      text-decoration: line-through;
+    }
   }
 `;
 

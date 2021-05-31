@@ -6,18 +6,19 @@ import { Slider } from '../../components/Slider'
 import Products from '../../components/Products';
 import Promotions from '../../components/Promotions';
 import Localization from '../../components/Localization';
-
+import { CounterCartContextProvider } from '../../components/hooks/useItems';
 
 function Home() {
   return (
-    <Container >
-      <Header />
-      <Slider />
-      <Products />
-      <Promotions />
-      <Localization />
-    </Container>
-
+    <CounterCartContextProvider>
+      <Container >
+        <Header />
+        <Slider />
+        <Products />
+        <Promotions />
+        <Localization />
+      </Container>
+    </CounterCartContextProvider>
   );
 }
 

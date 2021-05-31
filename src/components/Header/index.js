@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import { Container, Content } from './styles';
 import logoImg from '../../assets/logo.svg'
@@ -6,10 +6,14 @@ import searchIconImg from '../../assets/searchIcon.svg'
 import personIconImg from '../../assets/personIcon.svg'
 import carIconImg from '../../assets/carIcon.svg'
 import { HeaderMobile } from './HeaderMobile'
+import { CounterCartContext } from '../hooks/useItems';
 
 export function Header() {
   const widthScreem = window.innerWidth;
-  const [isMobile, setIsMobile] = useState(widthScreem < 700);
+  const isMobile = widthScreem < 700;
+
+  const [count] = useContext(CounterCartContext);
+
   return (
     <>
       {isMobile ? (
@@ -30,7 +34,7 @@ export function Header() {
               <div className="buy-car">
                 <img src={carIconImg} alt="corebiz" />
                 <div>
-                  <p>1</p>
+                  <p>{count}</p>
                 </div>
               </div>
             </nav>

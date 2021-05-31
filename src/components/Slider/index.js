@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Carousel from 'react-elastic-carousel';
 
 import { Container } from './styles';
@@ -7,7 +7,7 @@ import mobileSlideImg from '../../assets/mobileSlideImg.svg'
 
 export function Slider() {
   const widthScreem = window.innerWidth;
-  const [isMobile, setIsMobile] = useState(widthScreem < 768);
+  const isMobile = widthScreem < 768;
 
   return (
     <Container>
