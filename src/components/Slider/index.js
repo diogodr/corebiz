@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'react-elastic-carousel';
 
 import { Container } from './styles';
+
 import slideImg from '../../assets/slideImg.svg'
 import mobileSlideImg from '../../assets/mobileSlideImg.svg'
 import { useWindowSize } from '../hooks/useWindowSize';

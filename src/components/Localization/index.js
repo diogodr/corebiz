@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Container } from './styles';
+
 import emailIcon from '../../assets/emailIcon.svg';
 import phoneIcon from '../../assets/phoneIcon.svg';
 import minLogoImg from '../../assets/minLogoImg.svg';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { api } from '../../services/api';
 
+import { api } from '../../services/api';
 import { Container } from './styles';
 
 function Promotions() {
@@ -12,52 +12,42 @@ function Promotions() {
   async function handleSubmit(event) {
     var pattern = new RegExp(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,})+$/);
     event.preventDefault();
-    if (name.length < 4) {
-      setNameErrorForm("Digite um nome válido");
-      return
-    } else {
-      setNameErrorForm("");
-    }
 
-    if (!pattern.test(email)) {
-      setEmailErrorForm('Digite um email válido');
-      return
-    } else {
-      setEmailErrorForm("");
-    }
+    setNameErrorForm(name.length < 4 ? "Digite um nome válido" : "");
+
+    setEmailErrorForm(!pattern.test(email) ? "Digite um email válido" : "")
 
     const body = {
       name,
       email
     }
-    const response = await api.post('/newsletter', body);
-    console.log(response)
+    await api.post('/newsletter', body);
+    setName("");
+    setEmail("");
   }
 
   return (
     <Container>
       <h1>Participe de nossas news com promoções e novidades!</h1>
       <form onSubmit={handleSubmit} action="">
-        <input
-          value={name}
-          onChange={e => setName(e.target.value)}
-          placeholder="Digite seu nome"
-          type="text" />
-        <input
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="Digite seu email"
-          type="text" />
+        <div>
+          <input
+            value={name}
+            onChange={e => setName(e.target.value)}
+            placeholder="Digite seu nome"
+            type="text" />
+          {nameErrorForm && <p className="error">{nameErrorForm}</p>}
+        </div>
+        <div>
+          <input
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Digite seu email"
+            type="text" />
+          {emailErrorForm && <p className="error">{emailErrorForm}</p>}
+        </div>
         <button>Eu quero!</button>
       </form>
-      {nameErrorForm ? (
-        <p className="error">{nameErrorForm}</p>
-      ) : emailErrorForm ? (
-        <p className="error">{emailErrorForm}</p>
-      ) : (
-        <p style={{ color: '#BDBDBD' }}> - </p>
-      )}
-
     </Container>
   );
 }

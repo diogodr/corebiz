@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import { Container, Content } from './styles';
+import { HeaderMobile } from './HeaderMobile'
+import { CounterCartContext } from '../hooks/useItems';
+import { useWindowSize } from "../hooks/useWindowSize";
+
 import logoImg from '../../assets/logo.svg'
 import searchIconImg from '../../assets/searchIcon.svg'
 import personIconImg from '../../assets/personIcon.svg'
 import carIconImg from '../../assets/carIcon.svg'
-import { HeaderMobile } from './HeaderMobile'
-import { CounterCartContext } from '../hooks/useItems';
-import { useWindowSize } from "../hooks/useWindowSize";
 
 export function Header() {
   const [count] = useContext(CounterCartContext);
@@ -33,11 +34,11 @@ export function Header() {
                 <img src={searchIconImg} alt="corebiz" />
               </div>
               <div className="my-account">
-                <img src={personIconImg} alt="corebiz" />
+                <img src={personIconImg} alt="Ícone pessoa" />
                 <p>Minha Conta</p>
               </div>
               <div className="buy-car">
-                <img src={carIconImg} alt="corebiz" />
+                <img src={carIconImg} alt="Ícone carrinho de compras" />
                 <div>
                   <p>{count}</p>
                 </div>
@@ -48,6 +49,5 @@ export function Header() {
       )
       }
     </>
-
   );
 }

@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Carousel from 'react-elastic-carousel';
-import starImg from '../../assets/star.svg'
-import promotionCard from '../../assets/promotionCard.svg'
-import starOutlineImg from '../../assets/starOutline.svg'
+
 import { api } from '../../services/api';
 import { CounterCartContext } from '../hooks/useItems';
 import { useWindowSize } from '../hooks/useWindowSize';
-
 import { Container, Content } from './styles';
+
+import starImg from '../../assets/star.svg'
+import promotionCard from '../../assets/promotionCard.svg'
+import starOutlineImg from '../../assets/starOutline.svg'
 
 function Products() {
   const [count, setCount] = useContext(CounterCartContext);
@@ -24,13 +25,6 @@ function Products() {
 
   function handleSelectedDiv(id) {
     setSelectedProduct(id);
-    console.log(selectedProduct)
-  }
-
-  async function getProducts() {
-    const response = await api.get('/products')
-    setProducts(response.data);
-    console.log("Response: ", products);
   }
 
   function renderStars(stars) {
@@ -52,8 +46,12 @@ function Products() {
   }
 
   useEffect(() => {
+    async function getProducts() {
+      const response = await api.get('/products')
+      setProducts(response.data);
+    }
     getProducts();
-  }, []);
+  }, [products]);
 
   return (
     <Container>

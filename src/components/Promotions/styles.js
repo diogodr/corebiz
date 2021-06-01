@@ -28,6 +28,8 @@ export const Container = styled.div`
   }
 
   form {
+    display: flex;
+    
     @media (max-width: 768px) {
       display: flex;
       flex-direction: column;
