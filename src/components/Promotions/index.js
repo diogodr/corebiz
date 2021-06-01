@@ -17,6 +17,11 @@ function Promotions() {
 
     setEmailErrorForm(!pattern.test(email) ? "Digite um email válido" : "")
 
+    if (name.length < 4 || !pattern.test(email)) {
+      console.log('RESE')
+      return;
+    }
+
     const body = {
       name,
       email
