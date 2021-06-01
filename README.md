@@ -28,6 +28,8 @@ Tenha o nodeJS instalado na versão LTS [NodeJS](https://nodejs.org/en/download/
 
 
 ## Demonstração
+Hospedado pela pataforma Vercel
+Disponível em [Demo](https://corebiz-inky.vercel.app/)
 
 
 ## Usando
