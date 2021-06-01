@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Carousel from 'react-elastic-carousel';
 import starImg from '../../assets/star.svg'
+import promotionCard from '../../assets/promotionCard.svg'
 import starOutlineImg from '../../assets/starOutline.svg'
 import { api } from '../../services/api';
 import { CounterCartContext } from '../hooks/useItems';
@@ -62,6 +63,7 @@ function Products() {
         <Carousel itemsToShow={isMobile ? 2 : 4}>
           {products.map(product => (
             <div key={product.productId} className={product.productId === selectedProduct ? "active-carousel-item" : "carousel-item"}>
+              {product.listPrice && <img className="promotion-card" src={promotionCard} alt="promoção" />}
               <img onClick={() => handleSelectedDiv(product.productId)} src={product.imageUrl} alt="produto" />
               <p> {product.productName}</p>
               <div className="stars-container">

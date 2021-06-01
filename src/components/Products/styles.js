@@ -36,7 +36,7 @@ export const Content = styled.div`
   }
 
   @media (max-width: 1340px) {
-    padding: 0 140px;
+    padding: 0 100px;
   }
 
   @media (max-width: 768px) {
@@ -86,6 +86,14 @@ export const Content = styled.div`
     width: 216px;
     height: 353px;
     padding: 16px;
+    position: relative;
+
+    .promotion-card {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 81px;
+    }
 
     img {
       width: 100%;
@@ -93,7 +101,6 @@ export const Content = styled.div`
 
       @media (max-width: 768px) {
         width: 100%;
-        padding: 0 12px;
       }
     }
 
@@ -137,13 +144,23 @@ export const Content = styled.div`
     align-items: center;
     width: 216px;
     height: 353px;
-    padding: 16px;
+    padding-bottom: 16px;
+    position: relative;
 
     background: #E6E8EA;
+
+    .promotion-card {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 81px;
+
+    }
 
     img {
       width: 100%;
       margin: 8px 0;
+      margin-top: 0;
 
       @media (max-width: 768px) {
         width: 100%;

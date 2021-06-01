@@ -16,7 +16,7 @@ export const Content = styled.div`
   width: 100%;
 
   @media (max-width: 1340px) {
-    margin: 0 140px;
+    margin: 0 100px;
   }
 
   .logo {
